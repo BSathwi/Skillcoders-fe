@@ -38,7 +38,7 @@ export default function AddCourse() {
     }
 
     const formData = new FormData();
-    formData.append("course_name", form.courseName);
+    formData.append("title", form.courseName);
     formData.append("description", form.description);
     formData.append("category", form.category);
     formData.append("price", form.price);

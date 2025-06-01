@@ -6,7 +6,7 @@ import { Loader } from "lucide-react";
 const InternshipForm = () => {
   const [formData, setFormData] = useState({
     name: Cookies.get("username") || "",
-    mail_id: "",
+    email: "",
     phone_number: "",
     college: "",
     year_of_passout: "2025",
@@ -52,7 +52,7 @@ const InternshipForm = () => {
       toast.success("Your application was submitted successfully!");
       setFormData({
         name: Cookies.get("username") || "",
-        mail_id: "",
+        email: "",
         phone_number: "",
         college: "",
         year_of_passout: "2025",
@@ -89,8 +89,8 @@ const InternshipForm = () => {
             <label className="block text-gray-600 font-medium mb-1">Email</label>
             <input
               type="email"
-              name="mail_id"
-              value={formData.mail_id}
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
               className="w-full border rounded-lg px-4 py-2"

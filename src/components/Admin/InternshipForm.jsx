@@ -28,7 +28,7 @@ export default function InternshipForms() {
     fetchForms();
   }, []);
 
-  const handleMarkSelected = async (id, applicant_email, applicant_name, status) => {
+  const handleMarkSelected = async (id, applicant_email , applicant_name, status) => {
     const token = Cookies.get("access_token");
     setSubmitting(true);
     try {
@@ -53,6 +53,7 @@ export default function InternshipForms() {
             form.id === id ? { ...form, status: "complete" } : form
           )
         );
+        
         toast.success("Selected Student Name is " + applicant_name);
       } else {
         toast.error(data.message || "An error occurred");
@@ -125,7 +126,7 @@ export default function InternshipForms() {
 
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {form.phone_number} <br />
-                      <span className="text-gray-500">{form.mail_id}</span>
+                      <span className="text-gray-500">{form.email}</span>
                     </td>
 
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{form.college}</td>
@@ -161,7 +162,7 @@ export default function InternshipForms() {
                             : "text-green-600 hover:text-green-900"
                         }`}
                         onClick={() =>
-                          handleMarkSelected(form.id, form.mail_id, form.name, form.status)
+                          handleMarkSelected(form.id, form.email, form.name, form.status)
                         }
                         disabled={form.status === "complete" || submitting}
                       >
